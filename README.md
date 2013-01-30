@@ -3,12 +3,13 @@ dianping-api-samples
 
 <p>Welcome to Dianping Open SDK Samples!</p>
 
-<p>These open-source samples help you use Dianping API, including Java/Python/Php/JavaScript.</p>
+<p>These open-source samples help you use Dianping API, including Java/Python/Php/JavaScript/iOS.</p>
 
 <h3>Samples</h3>
 <ul>
     <li> dainping-javascript-samples
     <li> dainping-java-samples
+    <li> dainping-ios-samples
     <li> dianping-php-samples
     <li> dianping-python-samples
 </ul>
@@ -42,6 +43,12 @@ dianping-api-samples
 <ul>
     <li> cd dianping-python-samples
     <li> Run DemoApiRequest.py
+</ul>
+
+<h4>iOS Samples:</h4>
+<ul>
+    <li> cd dianping-ios-samples
+    <li> Open project with XCode (version 4.5 or above)
 </ul>
 
 ---------------------------------------------------------------
