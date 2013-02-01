@@ -34,7 +34,7 @@ $queryString = '';
 while (list($key, $val) = each($params))
 {
   $codes .=($key.$val);
-  $queryString .=('&'.$key.'='.$val);
+  $queryString .=('&'.$key.'='.urlencode($val));
 }
 
 $codes .=SECRET;
