@@ -64,8 +64,8 @@ public class DemoApiToolTest
     @Test
     public void testSign()
     {
-        String appKey = "12332145";
-        String secret = "20f644de23c54e04be38991710d2da13";
+        String appKey = "XXXXXXXX";
+        String secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
         Map<String, String> paramMap = new HashMap<String, String>();
         paramMap.put("city", "上海");
         paramMap.put("latitude", "31.21524");
