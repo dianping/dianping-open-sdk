@@ -8,22 +8,22 @@
  * All rights reserved.
  *
  */
+
+
 package com.dianping.open.android.samples;
 
 import android.app.Application;
 
 /**
- * ¹¦ÄÜÃèÊö:  <p>
+ * åŠŸèƒ½æè¿°: ç¨‹åºå…¥å£
+ * <p>
  * 
- *
- * @author : xiaopeng.li <p>
- *
+ * @author : xiaopeng.li
+ *         <p>
  * @version 2.2 2013-4-8
- *
  * @since Dianping-android-samples 2.2
  */
 public class MainApp extends Application
 {
 
-    
 }

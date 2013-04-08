@@ -1,18 +1,22 @@
 /*
-* Create Author : xiaopeng.li
-* Create Date : 2013-1-23
-* Project : dianping-java-samples
-* File Name : DemoApiTool.java
-*
-* Copyright (c) 2010-2015 by Shanghai HanTao Information Co., Ltd.
-* All rights reserved.
-*
-*/
+ * Create Author : xiaopeng.li
+ * Create Date : 2013-1-23
+ * Project : dianping-java-samples
+ * File Name : DemoApiTool.java
+ *
+ * Copyright (c) 2010-2015 by Shanghai HanTao Information Co., Ltd.
+ * All rights reserved.
+ *
+ */
+
+
 package com.dianping.open.android.samples.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -27,45 +31,29 @@ import org.apache.commons.httpclient.params.HttpClientParams;
 import org.apache.commons.httpclient.util.URIUtil;
 
 /**
-* Android°æ±¾Ê¾Àı´úÂë
-* <p>
-*
-* @author : xiaopeng.li
-* <p>
-* @version 1.0 2013-1-23
-* @since dianping-java-samples 1.0
-*/
+ * Androidç‰ˆæœ¬APIå·¥å…·
+ * <p>
+ * 
+ * @author : xiaopeng.li
+ *         <p>
+ * @version 1.0 2013-1-23
+ * @since dianping-java-samples 1.0
+ */
 public class DemoApiTool
 {
-    public static String sign(String appKey, String secret, Map<String, String> paramMap)
-    {
-        // ¶Ô²ÎÊıÃû½øĞĞ×ÖµäÅÅĞò
-        String[] keyArray = paramMap.keySet().toArray(new String[0]);
-        Arrays.sort(keyArray);
 
-        // Æ´½ÓÓĞĞòµÄ²ÎÊıÃû-Öµ´®
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(appKey);
-        for (String key : keyArray)
-        {
-            stringBuilder.append(key).append(paramMap.get(key));
-        }
-
-        stringBuilder.append(secret);
-        String codes = stringBuilder.toString();
-
-        // SHA-1±àÂë£¬ ÕâÀïÊ¹ÓÃµÄÊÇApache
-        // For Android
-        String sign =  new String(Hex.encodeHex(DigestUtils.sha(codes))).toUpperCase();
-
-        return sign;
-    }
-
+    /**
+     * è·å–è¯·æ±‚å­—ç¬¦ä¸²
+     * 
+     * @param appKey
+     * @param secret
+     * @param paramMap
+     * @return
+     */
     public static String getQueryString(String appKey, String secret, Map<String, String> paramMap)
     {
         String sign = sign(appKey, secret, paramMap);
 
-        // Ìí¼ÓÇ©Ãû
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("appkey=").append(appKey).append("&sign=").append(sign);
         for (Entry<String, String> entry : paramMap.entrySet())
@@ -76,6 +64,44 @@ public class DemoApiTool
         return queryString;
     }
 
+    /**
+     * è·å–è¯·æ±‚å­—ç¬¦ä¸²ï¼Œå‚æ•°å€¼è¿›è¡ŒUTF-8å¤„ç†
+     * 
+     * @param appKey
+     * @param secret
+     * @param paramMap
+     * @return
+     */
+    public static String getUrlEncodedQueryString(String appKey, String secret, Map<String, String> paramMap)
+    {
+        String sign = sign(appKey, secret, paramMap);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("appkey=").append(appKey).append("&sign=").append(sign);
+        for (Entry<String, String> entry : paramMap.entrySet())
+        {
+            try
+            {
+                stringBuilder.append('&').append(entry.getKey()).append('=').append(URLEncoder.encode(entry.getValue(),
+                                                                                                      "UTF-8"));
+            }
+            catch (UnsupportedEncodingException e)
+            {
+            }
+        }
+        String queryString = stringBuilder.toString();
+        return queryString;
+    }
+
+    /**
+     * è¯·æ±‚API
+     * 
+     * @param apiUrl
+     * @param appKey
+     * @param secret
+     * @param paramMap
+     * @return
+     */
     public static String requestApi(String apiUrl, String appKey, String secret, Map<String, String> paramMap)
     {
         String queryString = getQueryString(appKey, secret, paramMap);
@@ -96,8 +122,7 @@ public class DemoApiTool
             }
 
             client.executeMethod(method);
-            BufferedReader reader = new BufferedReader(
-                                                       new InputStreamReader(method.getResponseBodyAsStream(), "UTF-8"));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(method.getResponseBodyAsStream(), "UTF-8"));
             String line = null;
             while ((line = reader.readLine()) != null)
             {
@@ -117,5 +142,37 @@ public class DemoApiTool
         }
         return response.toString();
 
+    }
+
+    /**
+     * ç­¾å
+     * 
+     * @param appKey
+     * @param secret
+     * @param paramMap
+     * @return
+     */
+    public static String sign(String appKey, String secret, Map<String, String> paramMap)
+    {
+        // å‚æ•°åæ’åº
+        String[] keyArray = paramMap.keySet().toArray(new String[0]);
+        Arrays.sort(keyArray);
+
+        // æ‹¼æ¥å‚æ•°
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(appKey);
+        for (String key : keyArray)
+        {
+            stringBuilder.append(key).append(paramMap.get(key));
+        }
+
+        stringBuilder.append(secret);
+        String codes = stringBuilder.toString();
+
+        // SHA-1ç­¾å
+        // For Android
+        String sign = new String(Hex.encodeHex(DigestUtils.sha(codes))).toUpperCase();
+
+        return sign;
     }
 }

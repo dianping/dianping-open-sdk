@@ -8,6 +8,8 @@
  * All rights reserved.
  *
  */
+
+
 package com.dianping.open.android.samples;
 
 import java.util.HashMap;
@@ -25,7 +27,7 @@ import android.widget.TextView;
 import com.dianping.open.android.samples.utils.DemoApiTool;
 
 /**
- * ¹¦ÄÜÃèÊö: ÓÃÓÚÑİÊ¾Android°æ±¾µÄAPIÇëÇó
+ * Android ç‰ˆæœ¬æ¼”ç¤ºè¯·æ±‚API
  * <p>
  * 
  * @author : xiaopeng.li
@@ -35,20 +37,6 @@ import com.dianping.open.android.samples.utils.DemoApiTool;
  */
 public class MainActivity extends Activity
 {
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.main);
-        setTitle("API Demo Activity");
-        Button button = (Button) findViewById(R.id.DialogButton01);
-        button.setOnClickListener(new RequestAPILickListener(this));
-        
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy); 
-    }
-
     static class RequestAPILickListener implements OnClickListener
     {
 
@@ -69,22 +57,36 @@ public class MainActivity extends Activity
             String secret = ((EditText) activity.findViewById(R.id.TextSecret)).getText().toString();
 
             Map<String, String> paramMap = new HashMap<String, String>();
-            paramMap.put("city", "ÉÏº£");
+            paramMap.put("city", "ä¸Šæµ·");
             paramMap.put("latitude", "31.21524");
             paramMap.put("longitude", "121.420033");
-            paramMap.put("category", "ÃÀÊ³");
-            paramMap.put("region", "³¤ÄşÇø");
+            paramMap.put("category", "ç¾é£Ÿ");
+            paramMap.put("region", "é•¿å®åŒº");
             paramMap.put("limit", "20");
             paramMap.put("radius", "2000");
             paramMap.put("offset_type", "0");
             paramMap.put("has_coupon", "1");
             paramMap.put("has_deal", "1");
-            paramMap.put("keyword", "Ì©¹ú²Ë");
+            paramMap.put("keyword", "Ì©æ³°å›½èœ");
             paramMap.put("sort", "7");
             paramMap.put("format", "json");
 
             String requestResult = DemoApiTool.requestApi(apiUrl, appKey, secret, paramMap);
             text.setText(requestResult);
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.main);
+        setTitle("API Demo Activity");
+        Button button = (Button) findViewById(R.id.DialogButton01);
+        button.setOnClickListener(new RequestAPILickListener(this));
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
     }
 }
