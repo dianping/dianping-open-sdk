@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">dianping-android-samples</string>
+
+    <string name="title">Click To Request API</string>
+
+    <string name="result"></string>
+
+    <string name="key">XXXXXXXX</string>
+
+    <string name="value">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
+
+</resources>

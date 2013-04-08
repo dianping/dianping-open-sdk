@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Dianping API Samples</title>
+
+<script src="sha.js"></script>
+
+<script type="text/javascript">
+
+function getUrl()
+{
+	 var serverUrl = "http://api.dianping.com/";
+	 var apiPath = "v1/business/find_businesses";
+	 var appkey = "XXXXXXXX";
+	 var secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+	 
+	 var param = {};
+	 param["format"]="json";
+     param["city"]="上海";
+     param["latitude"]="31.21524";
+     param["longitude"]="121.420033";
+     param["category"]="美食";
+     param["region"]="长宁区";
+     param["limit"]="20";
+     param["radius"]="2000";
+     param["offset_type"]="2";
+     param["has_coupon"]="1";
+     param["has_deal"]="1";
+     param["keyword"]="泰国菜";
+     param["sort"]="7";
+	 
+	 var array = new Array();
+	 for(var key in param)
+	 {
+		 array.push(key);
+	 }
+	 array.sort();
+	 
+	 var paramArray = new Array();
+	 paramArray.push(appkey);
+	 for(var index in array)
+	 {
+		 var key = array[index];
+		 paramArray.push(key + param[key]);
+	 }
+	 paramArray.push(secret);
+
+	 var shaSource = paramArray.join("");
+	 var sign = new String(CryptoJS.SHA1(shaSource)).toUpperCase();
+	
+	 var queryArray = new Array();
+	 queryArray.push("appkey=" + appkey);
+	 queryArray.push("sign=" + sign);
+	 for(var key in param)
+	 {
+		 queryArray.push(key + "=" + param[key]);
+	 }
+	 var queryString = queryArray.join("&");
+	 
+	 var url = serverUrl + apiPath + "?" + queryString;
+	 return url;
+	}
+
+</script>
+</head>
+<body>
+	<input type="button" onclick="window.open(getUrl())" value="RequestAPI"/>
+</body>
+</html>

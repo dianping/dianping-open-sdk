@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "DPRequest.h"
 
-//#define kDPAppKey             @"your app_key"
-//#define kDPAppSecret          @"your app_secret"
+#define kDPAppKey             @"your app_key"
+#define kDPAppSecret          @"your app_secret"
 
 #ifndef kDPAppKey
 #error
