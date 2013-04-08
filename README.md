@@ -7,9 +7,10 @@ dianping-api-samples
 
 <h3>Samples</h3>
 <ul>
-    <li> dainping-javascript-samples
-    <li> dainping-java-samples
-    <li> dainping-ios-samples
+    <li> dianping-android-samples
+    <li> dianping-javascript-samples
+    <li> dianping-java-samples
+    <li> dianping-ios-samples
     <li> dianping-php-samples
     <li> dianping-python-samples
 </ul>
@@ -26,7 +27,7 @@ dianping-api-samples
 
 <h4>Javascript Samples:</h4>
 <ul>
-    <li> cd dainping-javascript-samples
+    <li> cd dianping-javascript-samples
     <li> open DemoApiRequest.html in browser
     <li> <b>IMPORTANT</b>: make sure DemoApiRequest.html is <b>"UTF-8"</b>
 </ul>
@@ -49,6 +50,14 @@ dianping-api-samples
 <ul>
     <li> cd dianping-ios-samples
     <li> Open project with XCode (version 4.5 or above)
+</ul>
+
+<h4>Android Samples:</h4>
+<ul>
+    <li> cd dianping-android-samples
+    <li> import as Eclipse Android Project 
+    <li> run As Android Application
+    <li> this project is based on Android 4.0.3
 </ul>
 
 ---------------------------------------------------------------
