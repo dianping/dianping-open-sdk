@@ -13,6 +13,7 @@ dianping-api-samples
     <li> dianping-ios-samples
     <li> dianping-php-samples
     <li> dianping-python-samples
+    <li> dianping-.net-samples
 </ul>
 
 <h3>How to get samples:</h3>
@@ -60,6 +61,12 @@ dianping-api-samples
     <li> this project is based on Android 4.0.3
 </ul>
 
+<h4>.NET Samples:</h4>
+<ul>
+    <li> cd dianping-.net-samples
+    <li> Open dianping-.net-samples.sln with Visual Studio 2010
+    <li> this project is based on .NET Framework 4.0
+</ul>
 ---------------------------------------------------------------
 <p><b>If you have any suggestion, please send mails to us.</b></p>
 
