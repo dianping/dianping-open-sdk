@@ -21,6 +21,7 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.URIException;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.params.HttpClientParams;
 import org.apache.commons.httpclient.util.URIUtil;
 import org.apache.commons.lang.StringUtils;
@@ -131,5 +132,46 @@ public class DemoApiTool
         }
         return response.toString();
 
+    }
+    
+    public static String requestPostApi(String apiUrl, String appKey, String secret, Map<String, String> paramMap)
+    {
+        StringBuffer response = new StringBuffer();
+        HttpClientParams httpConnectionParams = new HttpClientParams();
+        httpConnectionParams.setConnectionManagerTimeout(1000);
+        HttpClient client = new HttpClient(httpConnectionParams);
+        PostMethod method = new PostMethod(apiUrl);
+        
+        try
+        {
+            String sign = sign(appKey, secret, paramMap);
+            paramMap.put("sign", sign);
+            paramMap.put("appkey", appKey);
+            // 设置HTTP Post数据
+            for (Map.Entry<String, String> entry : paramMap.entrySet())
+            {
+                method.addParameter(entry.getKey(), entry.getValue());
+            }
+            method.addRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+
+            client.executeMethod(method);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(method.getResponseBodyAsStream(), "UTF-8"));
+            String line = null;
+            while ((line = reader.readLine()) != null)
+            {
+                response.append(line).append(System.getProperty("line.separator"));
+            }
+            reader.close();
+        }
+        catch (IOException e)
+        {
+            LOGGER.error("Request URL: " + apiUrl + " failed. ", e);
+        }
+        finally
+        {
+            method.releaseConnection();
+        }
+        return response.toString();
+        
     }
 }
