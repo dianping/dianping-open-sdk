@@ -17,6 +17,7 @@ weixin-java-SDK
 <h4>Usage:</h4>
 <ul>
     <li> cd weixin-java
+    <li> change weixin-web/src/main/resources/config.properties, add you AppKey and App Secret
     <li> mvn clean package
     <li> deploy weixin-java/weixin-web/target/weixin-web-1.0.0.war into your web server
 </ul>
