@@ -36,7 +36,7 @@
      * @return void
      */
     protected function onUnsubscribe() {
-      $this->responseText('欢迎下次关注点评开放平台小助手');
+      $this->responseText('欢迎关注点评开放平台小助手'.PHP_EOL.'请输入关键字，或者点击‘+’发送地理位置，获取团购');
     }
 
     /**
