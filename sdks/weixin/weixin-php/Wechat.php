@@ -32,7 +32,7 @@
      */
     public function __construct($token, $debug = FALSE) {
       if (!$this->validateSignature($token)) {
-        exit('签名验证失败');
+        exit('微信验证失败');
       }
       
       if ($this->isValid()) {
