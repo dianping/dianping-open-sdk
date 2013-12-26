@@ -14,6 +14,7 @@ dianping-api-samples
     <li> dianping-php-samples
     <li> dianping-python-samples
     <li> dianping-.net-samples
+	<li> oauth2-android-samples
 </ul>
 
 <h3>How to get samples:</h3>
@@ -66,6 +67,13 @@ dianping-api-samples
     <li> cd dianping-.net-samples
     <li> Open dianping-.net-samples.sln with Visual Studio 2010
     <li> this project is based on .NET Framework 4.0
+</ul>
+
+<h4>OAuth2 Android Samples:</h4>
+<ul>
+    <li> cd oauth2-android-samples
+    <li> Import project into Eclipse and run as Android Project
+    <li> this project is based on Android 4.2
 </ul>
 ---------------------------------------------------------------
 <p><b>If you have any suggestion, please send mails to us.</b></p>

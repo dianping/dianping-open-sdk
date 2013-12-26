@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/oauthButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/oauthButton" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/code" />
+
+    <TextView
+        android:id="@+id/codeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/token"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tokenlabel" />
+
+    <TextView
+        android:id="@+id/tokenText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+    
+    <Button
+        android:id="@+id/apiButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/apiButton" />
+    
+    <TextView
+        android:id="@+id/apiLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/apilabel" />
+  
+    <TextView
+        android:id="@+id/apiResultText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textIsSelectable="true" />
+
+</LinearLayout>

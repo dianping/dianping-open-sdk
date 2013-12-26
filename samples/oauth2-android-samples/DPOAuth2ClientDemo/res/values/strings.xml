@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">点评OAuth2演示</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world"></string>
+    <string name="apiButton">调用API</string>
+    <string name="code">Authorization Code:</string>
+    <string name="oauthButton">OAuth2认证</string>
+    <string name="tokenlabel">Access Token:</string>
+    <string name="apilabel">API:</string>
+
+</resources>
