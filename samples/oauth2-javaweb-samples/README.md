@@ -8,6 +8,7 @@ oauth2-javaweb-demo
 	<li>构建Authorize请求，跳转到点评OAuth2服务器页面，要求用户登录并授权</li>
 	<li>根据用户授权的结果，获取返回的授权码，然后构建Token请求，获取AccessToken</li>
 	<li>使用AccessToken，调用相应的API获取用户的基础信息</li>
+	<li>使用mvn jetty:start运行，进入页面http://localhost:8080/测试</li>
 </ul>
 
 <p>注意事项<p>
