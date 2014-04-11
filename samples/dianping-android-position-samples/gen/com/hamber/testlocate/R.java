@@ -31,7 +31,11 @@ public final class R {
         public static final int activity_main=0x7f030000;
     }
     public static final class string {
+        /**  填写开发者自己的appKey 和 secret  
+         */
+        public static final int app_key=0x7f050001;
         public static final int app_name=0x7f050000;
+        public static final int app_secret=0x7f050002;
     }
     public static final class style {
         /** 

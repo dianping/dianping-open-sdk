@@ -27,6 +27,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <meta-data
+            android:name="com.dianping.APP_KEY"
+            android:value="@string/app_key" />
+       	<meta-data
+            android:name="com.dianping.APP_SECRET"
+            android:value="@string/app_secret" /> 
     </application>
 
 </manifest>

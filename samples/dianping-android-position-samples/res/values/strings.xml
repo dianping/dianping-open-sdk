@@ -2,5 +2,8 @@
 <resources>
 
     <string name="app_name">TestLocate</string>
+    <!-- 填写开发者自己的appKey 和 secret  -->
+    <string name="app_key">791344586</string>
+    <string name="app_secret">ad9b1f8646544cdf8d3002696e23d088</string>
 
 </resources>
