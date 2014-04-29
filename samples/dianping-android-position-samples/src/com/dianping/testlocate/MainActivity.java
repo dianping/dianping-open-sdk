@@ -1,10 +1,13 @@
 package com.dianping.testlocate;
 
+import java.util.HashMap;
+
 import com.dianping.locate.utils.DPLocation;
 import com.dianping.locate.utils.DPLocationClient;
 import com.dianping.locate.utils.DPLocationClientOption;
 import com.dianping.locate.utils.DPLocationClientOption.Offset_type;
 import com.dianping.locate.utils.DPLocationListener;
+import com.dianping.locate.utils.DemoApiTool;
 import com.hamber.testlocate.R;
 
 import android.app.Activity;
@@ -37,6 +40,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	        locClient = new DPLocationClient(this);
 	        MyLocationListener listener = new MyLocationListener();
 	        locClient.registerLocationListener(listener);
+	        
+//	        mTvResult.setText(testSign());
 	    }
 
 	    @Override
@@ -67,7 +72,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	                break;
 	        }
 	    }
-	
+	    
 	    public class MyLocationListener implements DPLocationListener {
 	    	@Override
 	    	public void onReceiveLocation(DPLocation location) {

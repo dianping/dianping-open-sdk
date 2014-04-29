@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">TestLocate</string>
     <!-- 填写开发者自己的appKey 和 secret  -->
-    <string name="app_key">7*********</string>
-    <string name="app_secret">a***********************</string>
-
+    <string name="app_key">****************</string>
+    <string name="app_secret">*************************</string>
+	<string name="api_url">http://api.dianping.com/v1/position/get_coordinate</string>
 </resources>
